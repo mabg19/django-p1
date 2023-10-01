@@ -5,7 +5,7 @@ from django.http import HttpResponse
 # Create your views here.
 def home(request):
     return render(request, 'global/home.html', context={
-        'name': 'Maria Augusta'
+        'name': 'Vinicius Beltrao'
     })
 
 
