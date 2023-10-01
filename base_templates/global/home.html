@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Orçamento</title>
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px; }
+
+        h1{
+            color: #333; }
+
+        p{
+            font-size: 18px; }
+
+        input{
+            width: 200px;
+            padding: 10px;
+            margin-bottom: 10px; }
+
+        button{
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px; }
+
+        #resultado{
+            font-size: 24px;
+            margin-top: 20px; }
+
+        #valor{
+            font-size: 30px;
+            font-weight: bold;
+            margin-top: 20px; }
+
+        #btnEmpresas{
+            display: none; }
+
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Obter Orçamento</h1>
+        <p>Área em metros quadrados disponível em seu espaço:</p>
+        <input type="number" id="area" placeholder="Área (m²)">
+        <br>
+        <button onclick="calcularOrcamento()">Calcular Orçamento</button>
+        <p id="resultado"></p>
+        <p id="valor"></p>
+        <a href="empresasProximas.html" id="btnEmpresas"><button>Ver Empresas Próximas A Mim</button></a>
+    </div>
+    <script>
+        function calcularOrcamento() {
+            var area = parseFloat(document.getElementById("area").value);
+            if (isNaN(area) || area <= 0) {
+                alert("Por favor, insira uma área válida.");
+                return;
+            }
+            var precoPorMetroQuadrado = 556.35;
+            var orcamento = area * precoPorMetroQuadrado;
+            var resultado = "O seu orçamento é feito a partir da área do espaço disponível multiplicada pela média estimada do preço unitário de uma placa solar, totalizando:";
+            var valor = "R$" + orcamento.toFixed(2) + "</strong";
+            
+            document.getElementById("resultado").innerHTML = resultado;
+            document.getElementById("valor").innerHTML = valor;
+            document.getElementById("btnEmpresas").style.display = "inline";
+        }
+    </script>
+</body>
+</html>
