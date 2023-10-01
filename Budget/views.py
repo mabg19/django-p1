@@ -9,9 +9,21 @@ def home(request):
     })
 
 
-def contact(request):
-    return HttpResponse('CONTACT')
+def calculadoraSolar(request):
+    return HttpResponse('Calculadora Solar')
 
 
-def about(request):
-    return HttpResponse('ABOUT')
+def suporte(request):
+    return HttpResponse('Suporte')
+
+
+def informacoes(request):
+    return HttpResponse('Informações')
+
+
+def sobreNos(request):
+    return HttpResponse('Sobre Nós')
+
+
+def empresas(request):
+    return HttpResponse('Empresas Próximas A Mim')

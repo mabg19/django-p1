@@ -1,47 +1,111 @@
+{% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Orçamento</title>
+<head>
     <style>
-        body{
+        body {
             font-family: Arial, sans-serif;
             text-align: center;
-            padding: 50px; }
+            padding: 50px;
+            margin: 0;
+        }
 
-        h1{
-            color: #333; }
+        #header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            background-color: #F2F2F2;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px;
+            z-index: 1000;
+        }
 
-        p{
-            font-size: 18px; }
+        #logo img {
+            width: 150px;
+            height: auto;
+        }
 
-        input{
+        #icone {
+            font-size: 34px;
+            margin-left: auto;
+        }
+
+        #links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            justify-content: center;
+            margin-left: 20px;
+        }
+
+        #links a{
+            text-decoration: none;
+            color: black;
+            cursor: pointer;
+        }
+
+        h1 {
+            color: #333;
+            margin-top: 80px;
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+        input {
             width: 200px;
             padding: 10px;
-            margin-bottom: 10px; }
+            margin-bottom: 10px;
+        }
 
-        button{
+        button {
             background-color: #333;
             color: #fff;
             padding: 10px 20px;
             border: none;
             cursor: pointer;
-            margin-top: 10px; }
+            margin-top: 10px;
+        }
 
-        #resultado{
+        #resultado {
             font-size: 24px;
-            margin-top: 20px; }
+            margin-top: 20px;
+        }
 
-        #valor{
+        #valor {
             font-size: 30px;
             font-weight: bold;
-            margin-top: 20px; }
+            margin-top: 20px;
+        }
 
-        #btnEmpresas{
-            display: none; }
-
+        #btnEmpresas {
+            display: none;
+        }
     </style>
 </head>
 <body>
+    <!-- Seção do cabeçalho -->
+    <div id="header">
+        <div id="logo"><img src="{% static 'logo\ECNTlogo.png' %}" alt="Logo ECOnnect"></div>
+        <div id="links">
+            <a href="calculadoraSolar/">Calculadora solar</a>
+            <a href="suporte/">Suporte</a>
+            <a href="informacoes/">Informações</a>
+            <a href="sobreNos">Sobre nós</a>
+        </div>
+        <i class="fas fa-user" id="icone"></i>
+    </div>
+
+    <!-- Seção do Orçamento -->
     <div>
         <h1>Obter Orçamento</h1>
         <p>Área em metros quadrados disponível em seu espaço:</p>
@@ -50,7 +114,7 @@
         <button onclick="calcularOrcamento()">Calcular Orçamento</button>
         <p id="resultado"></p>
         <p id="valor"></p>
-        <a href="empresasProximas.html" id="btnEmpresas"><button>Ver Empresas Próximas A Mim</button></a>
+        <a href="empresas/" id="btnEmpresas"><button>Ver Empresas Próximas A Mim</button></a>
     </div>
     <script>
         function calcularOrcamento() {
