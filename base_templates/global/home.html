@@ -77,9 +77,15 @@
         }
 
         #resultado {
-            font-size: 24px;
+            font-size: 18px;
             margin-top: 20px;
         }
+
+        #observacao {
+            font-size: 14px;
+            margin-top: 20px;
+        }
+
 
         #valor {
             font-size: 30px;
@@ -114,6 +120,7 @@
         <button onclick="calcularOrcamento()">Calcular Orçamento</button>
         <p id="resultado"></p>
         <p id="valor"></p>
+        <p id="observacao"></p>
         <a href="empresas/" id="btnEmpresas"><button>Ver Empresas Próximas A Mim</button></a>
     </div>
     <script>
@@ -127,9 +134,11 @@
             var orcamento = area * precoPorMetroQuadrado;
             var resultado = "O seu orçamento é feito a partir da área do espaço disponível multiplicada pela média estimada do preço unitário de uma placa solar, totalizando:";
             var valor = "R$" + orcamento.toFixed(2) + "</strong";
+            var observacao = "*Vale ressaltar que esse valor é apenas uma aproximação, visto que pode variar dependendo de vários fatores.";
             
             document.getElementById("resultado").innerHTML = resultado;
             document.getElementById("valor").innerHTML = valor;
+            document.getElementById("observacao").innerHTML = observacao;
             document.getElementById("btnEmpresas").style.display = "inline";
         }
     </script>
