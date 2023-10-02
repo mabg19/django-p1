@@ -9,13 +9,21 @@ def orcamento(request):
     })
 
 
-def calculadoraSolar(request):
-    return HttpResponse('Calculadora Solar')
-
-
 def area(request):
     return render(request, 'global/area.html', context={
         'name': 'Área Disponível'
+    })
+
+
+def potencial(request):
+    return render(request, 'global/potencial.html', context={
+        'name': 'Potencial de Geração de Energia'
+    })
+
+
+def calculadora(request):
+    return render(request, 'global/calculadora.html', context={
+        'name': 'Cálculo Orçamento'
     })
 
 
@@ -23,14 +31,12 @@ def suporte(request):
     return HttpResponse('Suporte')
 
 
-def home(request):
-    return render(request, 'global/home.html', context={
-        'name': 'Cálculo Orçamento'
-    })
-
-
 def sobreNos(request):
     return HttpResponse('Sobre Nós')
+
+
+def informacoes(request):
+    return HttpResponse('Informações')
 
 
 def empresas(request):

@@ -95,9 +95,9 @@
                 <img src="{% static 'logo\ECNTlogo.png' %}" alt="Logo ECOnnect" style="width: 150px; height: auto;"></div>
             <div id="links">
                 <a href="http://127.0.0.1:8000/area/">Área Disponível</a>
-                <a href="http://127.0.0.1:8000/suporte/">Suporte</a>
-                <a href="http://127.0.0.1:8000/informacoes/">Informações</a>
-                <a href="http://127.0.0.1:8000/sobreNos/">Sobre nós</a></div>
+                <a href="http://127.0.0.1:8000/calculadora/">Calculadora Solar</a>
+                <a href="http://127.0.0.1:8000/potencial/">Potencial de Energia</a>
+                <a href="http://127.0.0.1:8000/orcamento/">Orçamento</a></div>
         </div>
         <div id="usuario">
             <img src="{% static 'logo\user.png' %}" alt="Símbolo User" style="width: 40px; height: auto;"></div>
@@ -120,10 +120,10 @@
             <option value="sul">Sul</option>
         </select>
         <br>
-        <button id="botao" onclick="calcularEnergiaSolar()">Calcular</button>
+        <button type="button" id="botao" onclick="calcularEnergiaSolar()">Calcular</button>
     </form>
     
-    <div id="resultado">
+    <div id="resultado" style="display: none">
         <h2>Quantidade de Painéis Solares Necessários:</h2>
         <p id="quantidadePaineis">0 painéis</p>
         
@@ -139,7 +139,7 @@
             const consumoMensal = parseFloat(document.getElementById('consumoMensal').value);
             const tarifaEnergia = parseFloat(document.getElementById('tarifaEnergia').value);
             const estado = document.getElementById('estado').value;
-
+        
             const irradiacaoSolarPorEstado = {
                 norte: 5.0,
                 nordeste: 5.5,
@@ -147,22 +147,24 @@
                 sudeste: 5.7,
                 sul: 4.8
             };
-            
+        
             const irradiacaoSolar = irradiacaoSolarPorEstado[estado];
             const potenciaModulo = 350; // Potência do módulo em Wp
-
+        
             if (!isNaN(consumoMensal) && !isNaN(tarifaEnergia) && irradiacaoSolar !== undefined) {
-                const energiaMensal = ((potenciaModulo/1000) * irradiacaoSolar * (1 - 0.2)) * 30 // kWh/mês
-                const quantidadePaineis = Math.ceil(consumoMensal / energiaMensal); // Número de painéis necessários
-
-                // Cálculo da área mínima para instalação
-                const areaMinima = quantidadePaineis * 2; // 2 m² por painel
-
-                document.getElementById('quantidadePaineis').textContent = `${quantidadePaineis} painéis`;
-                document.getElementById('areaMinima').textContent = `${areaMinima} m²`;
-                document.getElementById('geracaoMensal').textContent = `${energiaMensal.toFixed(2)} kWh`;
+                energiaMensal = ((potenciaModulo/1000) * irradiacaoSolar * (1 - 0.2)) * 30; // kWh/mês
+                quantidadePaineis = Math.ceil(consumoMensal / energiaMensal); // Número de painéis necessários
             }
-        }
+        
+            const areaMinima = quantidadePaineis * 2; // 2 m² por painel
+        
+            const resultadoSection = document.getElementById('resultado');
+            resultadoSection.style.display = 'block';
+        
+            document.getElementById('quantidadePaineis').textContent = quantidadePaineis + " painéis";
+            document.getElementById('areaMinima').textContent = areaMinima + " m²";
+            document.getElementById('geracaoMensal').textContent = energiaMensal.toFixed(2) + " kWh";
+        }        
     </script>
 </body>
 </html>
