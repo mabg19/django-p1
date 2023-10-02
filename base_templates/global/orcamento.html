@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Orçamento</title>
 <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -112,7 +111,7 @@
             <div id="logo-principal">
                 <img src="{% static 'logo\ECNTlogo.png' %}" alt="Logo ECOnnect" style="width: 150px; height: auto;"></div>
             <div id="links">
-                <a href="calculadoraSolar/">Calculadora solar</a>
+                <a href="area/">Área Disponível</a>
                 <a href="suporte/">Suporte</a>
                 <a href="informacoes/">Informações</a>
                 <a href="sobreNos">Sobre nós</a></div>
@@ -140,9 +139,9 @@
                 alert("Por favor, insira uma área válida.");
                 return;
             }
-            var precoPorMetroQuadrado = 556.35;
+            const precoPorMetroQuadrado = 556.35;
             var orcamento = area * precoPorMetroQuadrado;
-            var resultado = "O seu orçamento é feito a partir da área do espaço disponível multiplicada pela média estimada do preço unitário de uma placa solar, totalizando:";
+            const resultado = "O seu orçamento é feito a partir da área do espaço disponível multiplicada pela média estimada do preço unitário de uma placa solar, totalizando:";
             var valor = "R$" + orcamento.toFixed(2) + "</strong";
             var observacao = "*Vale ressaltar que esse valor é apenas uma aproximação, visto que pode variar dependendo de vários fatores.";
             
