@@ -57,11 +57,12 @@
         }
 
         button {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
             border: none;
-            background: none;
-            padding: 0;
-            font-size: inherit;
             cursor: pointer;
+            align-items: center;
         }
 
         #links a {
@@ -71,15 +72,14 @@
         }
 
         .fraseinfo {
-            background-color: #F2F2F2;
             padding: 10px;
         }
 
         .botao {
-            background-color: #F2F2F2;
             border: none;
             padding: 10px;
             cursor: pointer;
+            align-items: center;
         }
     </style>
     <meta charset="UTF-8">
@@ -89,10 +89,12 @@
         function area() {
             var largura = document.getElementById("largura").value;
             var comprimento = document.getElementById("comprimento").value;
-            largura = parseInt(largura);
-            comprimento = parseInt(comprimento);
+            largura = parseFloat(largura);
+            comprimento = parseFloat(comprimento);
+            totalArea = largura * comprimento;
             var resultado = document.getElementById("resultado");
-            resultado.innerHTML = "Sua área total é: " + (largura * comprimento);
+            var totalArea = document.getElementById("totalArea");
+            resultado.innerHTML = "Sua área total é: " + (largura * comprimento).toFixed(2) + "m².";
         }
     </script>
 </head>
@@ -120,10 +122,10 @@
     <input id="largura"><br />
     <h3>Comprimento</h3>
     <input id="comprimento"><br />
-    <br />
-    <button onclick="area()">Resultado</button>
-    <div id="resultado"></div>
-    <a href="http://127.0.0.1:8000/" class="botao"><button>Exportar valor pra calculadora</button></a>
+    <p id="totalArea"></p>
+    <button style="background-color: #333"onclick="area()">Resultado</button>
+    <h3 id="resultado"></h3>
+    <a style="background-color: #F2F2F2" href="http://127.0.0.1:8000/orcamento/" class="botao"><button>Exportar Valor Para A Calculadora</button></a>
 </body>
 
 </html>
