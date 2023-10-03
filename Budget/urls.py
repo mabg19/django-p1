@@ -1,12 +1,12 @@
 from django.urls import path
-from Budget.views import orcamento, suporte, calculadora, informacoes
-from Budget.views import sobreNos, empresas, area, potencial
+from Budget.views import orcamento, calculadora, informacoes
+from Budget.views import sobreNos, empresas, area, potencial, home
 
 urlpatterns = [
+    path('', home),  # Home
     path('orcamento/', orcamento),  # Orçamento
-    path('', area),  # Área Disponível
+    path('area/', area),  # Área Disponível
     path('calculadora/', calculadora),  # Calculadora Solar
-    path('suporte/', suporte),  # Contato
     path('informacoes/', informacoes),  # Informações
     path('sobreNos/', sobreNos),  # Sobre Nós
     path('empresas/', empresas),  # Empresas Próximas A Mim

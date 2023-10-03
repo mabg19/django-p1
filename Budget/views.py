@@ -27,8 +27,10 @@ def calculadora(request):
     })
 
 
-def suporte(request):
-    return HttpResponse('Suporte')
+def home(request):
+    return render(request, 'global/home.html', context={
+        'name': 'Home'
+    })
 
 
 def sobreNos(request):
